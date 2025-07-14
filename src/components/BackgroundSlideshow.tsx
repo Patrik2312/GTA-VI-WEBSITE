@@ -40,12 +40,12 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
             animationDelay: `${animationDelay}s`,
             '--drift-x': `${horizontalDrift}vw`
           } as React.CSSProperties}
-          }}
         />
       );
     }
     return sparks;
   };
+
   return (
     <div className="slideshow-container">
       {/* Background Images */}
