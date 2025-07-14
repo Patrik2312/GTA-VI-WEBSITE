@@ -85,7 +85,7 @@ function App() {
               ].map((unit, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl">
-                    <div className="text-3xl md:text-5xl lg:text-6xl font-mono font-black text-red-500 leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow">
+                    <div className="text-3xl md:text-5xl lg:text-6xl font-orbitron font-black leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow" style={{ color: '#FF0000' }}>
                       {formatNumber(unit.value)}
                     </div>
                   </div>
@@ -98,7 +98,11 @@ function App() {
           </div>
 
           {/* Subtitle */}
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white leading-tight mb-8 enhanced-text-visibility">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-anton font-semibold leading-tight mb-8" style={{ 
+            color: '#FFFFFF', 
+            letterSpacing: '0.05em',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.9)'
+          }}>
             The Premium GTA VI Collectible You've Been Waiting For
           </h2>
 
