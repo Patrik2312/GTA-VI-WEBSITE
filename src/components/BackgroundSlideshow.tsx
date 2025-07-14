@@ -29,7 +29,6 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
     for (let i = 0; i < 15; i++) {
       const leftPosition = Math.random() * 100;
       const animationDelay = Math.random() * 8;
-      const driftX = (Math.random() - 0.5) * 100;
       
       sparks.push(
         <div
@@ -37,9 +36,8 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
           className="pixel-spark"
           style={{
             left: `${leftPosition}%`,
-            animationDelay: `${animationDelay}s`,
-            '--drift-x': `${driftX}px`
-          } as React.CSSProperties}
+            animationDelay: `${animationDelay}s`
+          }}
         />
       );
     }
