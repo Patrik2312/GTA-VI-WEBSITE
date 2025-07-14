@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ParallaxLayer from './ParallaxLayer';
 
 interface BackgroundSlideshowProps {
   children: React.ReactNode;
@@ -47,9 +46,7 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
       
       {/* Content */}
       <div className="slideshow-content">
-        <ParallaxLayer>
-          {children}
-        </ParallaxLayer>
+        {children}
       </div>
     </div>
   );
