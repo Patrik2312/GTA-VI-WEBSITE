@@ -41,6 +41,9 @@ const BackgroundSlideshow: React.FC<BackgroundSlideshowProps> = ({ children }) =
       {/* Gradient Overlay */}
       <div className="slideshow-overlay" />
       
+      {/* CRT Scan-lines */}
+      <div className="crt-scanlines" />
+      
       {/* Content */}
       <div className="slideshow-content">
         {children}
