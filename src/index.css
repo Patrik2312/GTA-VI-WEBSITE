@@ -36,6 +36,10 @@ body {
   font-family: 'Orbitron', monospace;
 }
 
+.font-pixel {
+  font-family: 'Press Start 2P', monospace;
+}
+
 /* GTA VI Text Styles */
 .gta-headline {
   font-family: 'Chivo', sans-serif;
@@ -86,19 +90,19 @@ body {
 @keyframes pulseGlow {
   0%, 100% {
     text-shadow: 
-      0 0 10px #FF0000,
-      0 0 20px #FF0000,
-      0 0 30px #FF3CAC,
-      0 0 40px #FF3CAC,
-      0 0 50px #FF3CAC;
+      0 0 8px #FF4444,
+      0 0 16px #FF4444,
+      0 0 24px #FF6666,
+      0 0 32px #FF8888,
+      0 0 40px #FFAAAA;
   }
   50% {
     text-shadow: 
-      0 0 20px #FF0000,
-      0 0 30px #FF0000,
-      0 0 40px #FF3CAC,
-      0 0 60px #FF3CAC,
-      0 0 80px #FF3CAC;
+      0 0 12px #FF4444,
+      0 0 24px #FF4444,
+      0 0 36px #FF6666,
+      0 0 48px #FF8888,
+      0 0 60px #FFAAAA;
   }
 }
 

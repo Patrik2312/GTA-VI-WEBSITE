@@ -127,7 +127,11 @@ function App() {
               ].map((unit, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className={`bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl ${unit.vhs ? unit.vhsClass : ''}`}>
-                    <div className="text-3xl md:text-5xl lg:text-6xl font-orbitron font-black leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow" style={{ color: '#FF0000' }}>
+                    <div className="text-2xl md:text-4xl lg:text-5xl font-pixel leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow pixel-perfect" style={{ 
+                      color: '#FF0000',
+                      imageRendering: 'pixelated',
+                      textRendering: 'geometricPrecision'
+                    }}>
                       {formatNumber(unit.value)}
                     </div>
                   </div>
