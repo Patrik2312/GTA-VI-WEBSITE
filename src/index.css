@@ -102,6 +102,114 @@ body {
   }
 }
 
+/* Digital Glitch Animation */
+@keyframes digitalGlitch {
+  0% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, 1px) scale(1.01);
+    filter: hue-rotate(90deg);
+    text-shadow: 
+      2px 0 #FF0000,
+      -2px 0 #00FFFF,
+      0 0 10px #FF3CAC,
+      0 0 20px #FF3CAC;
+  }
+  20% {
+    transform: translate(1px, -1px) scale(0.99);
+    filter: hue-rotate(180deg);
+    text-shadow: 
+      -1px 0 #FF0000,
+      1px 0 #00FFFF,
+      0 0 15px #FF3CAC;
+  }
+  30% {
+    transform: translate(-1px, 2px) scale(1.02);
+    filter: hue-rotate(270deg);
+    text-shadow: 
+      3px 0 #FF0000,
+      -3px 0 #00FFFF,
+      0 0 20px #FF3CAC;
+  }
+  40% {
+    transform: translate(2px, -2px) scale(0.98);
+    filter: hue-rotate(360deg);
+    text-shadow: 
+      -2px 0 #FF0000,
+      2px 0 #00FFFF,
+      0 0 25px #FF3CAC;
+  }
+  50% {
+    transform: translate(-2px, 1px) scale(1.01);
+    filter: hue-rotate(45deg);
+    text-shadow: 
+      1px 0 #FF0000,
+      -1px 0 #00FFFF,
+      0 0 30px #FF3CAC;
+  }
+  60% {
+    transform: translate(1px, 1px) scale(0.99);
+    filter: hue-rotate(135deg);
+    text-shadow: 
+      -3px 0 #FF0000,
+      3px 0 #00FFFF,
+      0 0 15px #FF3CAC;
+  }
+  70% {
+    transform: translate(-1px, -1px) scale(1.01);
+    filter: hue-rotate(225deg);
+    text-shadow: 
+      2px 0 #FF0000,
+      -2px 0 #00FFFF,
+      0 0 20px #FF3CAC;
+  }
+  80% {
+    transform: translate(2px, 2px) scale(0.98);
+    filter: hue-rotate(315deg);
+    text-shadow: 
+      -1px 0 #FF0000,
+      1px 0 #00FFFF,
+      0 0 10px #FF3CAC;
+  }
+  90% {
+    transform: translate(-1px, 1px) scale(1.005);
+    filter: hue-rotate(180deg);
+    text-shadow: 
+      1px 0 #FF0000,
+      -1px 0 #00FFFF,
+      0 0 5px #FF3CAC;
+  }
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+    text-shadow: 
+      0 0 10px #FF0000,
+      0 0 20px #FF0000,
+      0 0 30px #FF3CAC,
+      0 0 40px #FF3CAC,
+      0 0 50px #FF3CAC;
+  }
+}
+
+/* Glitch trigger classes */
+.glitch-seconds {
+  animation: digitalGlitch 0.1s ease-in-out;
+}
+
+.glitch-minutes {
+  animation: digitalGlitch 0.1s ease-in-out;
+}
+
+.glitch-hours {
+  animation: digitalGlitch 0.1s ease-in-out;
+}
+
+.glitch-days {
+  animation: digitalGlitch 0.1s ease-in-out;
+}
+
 @keyframes buttonPulse {
   0%, 100% {
     box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.4);

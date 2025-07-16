@@ -10,6 +10,20 @@ function App() {
     seconds: 0
   });
   
+  const [prevTimeLeft, setPrevTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+  
+  const [glitchStates, setGlitchStates] = useState({
+    days: false,
+    hours: false,
+    minutes: false,
+    seconds: false
+  });
+  
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -23,11 +37,39 @@ function App() {
       const difference = targetDate - now;
       
       if (difference > 0) {
-        setTimeLeft({
+        const newTimeLeft = {
           days: Math.floor(difference / (1000 * 60 * 60 * 24)),
           hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        };
+        
+        // Check for changes and trigger glitch effects
+        setTimeLeft(prevTime => {
+          const changes = {
+            days: newTimeLeft.days !== prevTime.days,
+            hours: newTimeLeft.hours !== prevTime.hours,
+            minutes: newTimeLeft.minutes !== prevTime.minutes,
+            seconds: newTimeLeft.seconds !== prevTime.seconds
+          };
+          
+          // Trigger glitch animations for changed units
+          if (changes.days || changes.hours || changes.minutes || changes.seconds) {
+            setGlitchStates(changes);
+            
+            // Reset glitch states after animation duration
+            setTimeout(() => {
+              setGlitchStates({
+                days: false,
+                hours: false,
+                minutes: false,
+                seconds: false
+              });
+            }, 100);
+          }
+          
+          setPrevTimeLeft(prevTime);
+          return newTimeLeft;
         });
       }
     }, 1000);
@@ -78,13 +120,13 @@ function App() {
           <div className="my-12">
             <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
               {[
-                { value: timeLeft.days, label: 'DAYS' },
-                { value: timeLeft.hours, label: 'HRS' },
-                { value: timeLeft.minutes, label: 'MIN' },
-                { value: timeLeft.seconds, label: 'SEC' }
+                { value: timeLeft.days, label: 'DAYS', glitch: glitchStates.days, glitchClass: 'glitch-days' },
+                { value: timeLeft.hours, label: 'HRS', glitch: glitchStates.hours, glitchClass: 'glitch-hours' },
+                { value: timeLeft.minutes, label: 'MIN', glitch: glitchStates.minutes, glitchClass: 'glitch-minutes' },
+                { value: timeLeft.seconds, label: 'SEC', glitch: glitchStates.seconds, glitchClass: 'glitch-seconds' }
               ].map((unit, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className="bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl">
+                  <div className={`bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl ${unit.glitch ? unit.glitchClass : ''}`}>
                     <div className="text-3xl md:text-5xl lg:text-6xl font-orbitron font-black leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow" style={{ color: '#FF0000' }}>
                       {formatNumber(unit.value)}
                     </div>
