@@ -17,7 +17,7 @@ function App() {
     seconds: 0
   });
   
-  const [glitchStates, setGlitchStates] = useState({
+  const [vhsStates, setVhsStates] = useState({
     days: false,
     hours: false,
     minutes: false,
@@ -55,11 +55,11 @@ function App() {
           
           // Trigger glitch animations for changed units
           if (changes.days || changes.hours || changes.minutes || changes.seconds) {
-            setGlitchStates(changes);
+            setVhsStates(changes);
             
             // Reset glitch states after animation duration
             setTimeout(() => {
-              setGlitchStates({
+              setVhsStates({
                 days: false,
                 hours: false,
                 minutes: false,
@@ -120,13 +120,13 @@ function App() {
           <div className="my-12">
             <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
               {[
-                { value: timeLeft.days, label: 'DAYS', glitch: glitchStates.days, glitchClass: 'glitch-days' },
-                { value: timeLeft.hours, label: 'HRS', glitch: glitchStates.hours, glitchClass: 'glitch-hours' },
-                { value: timeLeft.minutes, label: 'MIN', glitch: glitchStates.minutes, glitchClass: 'glitch-minutes' },
-                { value: timeLeft.seconds, label: 'SEC', glitch: glitchStates.seconds, glitchClass: 'glitch-seconds' }
+                { value: timeLeft.days, label: 'DAYS', vhs: vhsStates.days, vhsClass: 'vhs-days' },
+                { value: timeLeft.hours, label: 'HRS', vhs: vhsStates.hours, vhsClass: 'vhs-hours' },
+                { value: timeLeft.minutes, label: 'MIN', vhs: vhsStates.minutes, vhsClass: 'vhs-minutes' },
+                { value: timeLeft.seconds, label: 'SEC', vhs: vhsStates.seconds, vhsClass: 'vhs-seconds' }
               ].map((unit, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className={`bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl ${unit.glitch ? unit.glitchClass : ''}`}>
+                  <div className={`bg-black/60 backdrop-blur-sm rounded-lg p-4 md:p-6 mb-3 border border-red-500/40 shadow-2xl ${unit.vhs ? unit.vhsClass : ''}`}>
                     <div className="text-3xl md:text-5xl lg:text-6xl font-orbitron font-black leading-none tracking-wider transform transition-all duration-300 hover:scale-105 digit-glow" style={{ color: '#FF0000' }}>
                       {formatNumber(unit.value)}
                     </div>
