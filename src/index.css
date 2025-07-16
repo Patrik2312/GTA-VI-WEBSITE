@@ -450,13 +450,63 @@ button:focus {
 /* Accessibility: Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .frosted-glass-card::before,
-  .heartbeat-animation {
+  .heartbeat-animation,
+  .crt-scanline-sweep {
     animation: none;
   }
   
   .frosted-glass-card:hover::before {
     opacity: 0.4;
   }
+}
+
+/* CRT Scan-line Sweep Effect */
+@keyframes scanlineSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.crt-scanline-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.crt-scanline-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 20%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 0.8) 80%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  transition: none;
+}
+
+.crt-scanline-sweep:hover::after {
+  animation: scanlineSweep 350ms ease-out;
 }
 /* CRT Scan-line Effect */
 .crt-scanlines {

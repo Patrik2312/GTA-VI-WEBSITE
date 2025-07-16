@@ -154,7 +154,7 @@ function App() {
           {/* Action Buttons */}
           <div className="space-y-4 max-w-md mx-auto">
             {/* Frosted Glass Card */}
-            <div className="frosted-glass-card">
+            <div className="frosted-glass-card crt-scanline-sweep">
             {!isSubmitted ? (
               <>
                 {/* Email Input Form */}
