@@ -1,27 +1,76 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+/* GTA VI Typography Hierarchy */
+.font-chivo-black {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 900;
 }
 
-.font-anton {
-  font-family: 'Anton', sans-serif;
+.font-chivo-bold {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 700;
+}
+
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-helvetica {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 .font-orbitron {
   font-family: 'Orbitron', monospace;
 }
 
+/* GTA VI Text Styles */
+.gta-headline {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.gta-subtitle {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.gta-body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.gta-cta {
+  font-family: 'Chivo', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+}
+
+.gta-secondary {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.4;
+}
 /* Custom animations and effects */
 @keyframes fadeInUp {
   from {
